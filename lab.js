@@ -124,14 +124,14 @@ function greeting( obj ) {
 */
 
 //Code Here
-var populationData = {
-  utah: 10000,
-  california: 10000,
-  texas: 10000,
-  arizona: 10000
+function totalPopulation(obj){
+  const { utah, california, texas, arizona } = obj; 
+  const total = utah + california + texas + arizona;
+  return total; 
 };
-
-console.log(totalPopulation(populationData)); 
+console.log(totalPopulation({utah:1, california:2, texas:3, arizona:4}))
+const states = { utah:1, california:2, texas:3, arizona:4}
+console.log(totalPopulation(states))
 
 
 //////////////////////////// PROBLEM 9 ////////////////////////////
@@ -145,7 +145,18 @@ console.log(totalPopulation(populationData));
 */
 
 //Code Here
-
+function ingredients(obj){
+  const { carb, fat, protein } = obj;
+  const arr = [];
+  arr.push(carb, fat, protein);
+  return arr;
+};
+const ingredientsData = {
+  carb: "rice",
+  fat: "avocado",
+  protein: "chicken"
+};
+console.log(ingredients(ingredientsData));
 
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
@@ -167,7 +178,9 @@ var user = {
 */
 
 //Code Here
-
+user.name = 'Bryan G. Smith';
+user.email = 'bryan.smilth@devmounta.in'
+console.log(user);
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
 /*
@@ -175,7 +188,8 @@ var user = {
 */
 
 //Code Here
-
+delete user.age;
+console.log(user);
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
 /*
@@ -185,7 +199,15 @@ var user = {
 */
 
 //Code here
-
+class Cat {
+  constructor(name, age, color){
+    this.name = name;
+    this.age = age;
+    this.color = color;
+  }
+}
+const myCat = new Cat('Mini', 1, 'White');
+console.log(myCat.name);
 
 
 //////////////////////////// PROBLEM 13 ////////////////////////////
@@ -197,7 +219,19 @@ var user = {
 */
 
 //Code here
-
+class Wizard{
+  constructor(name, age, favoriteSpell){
+    this.name = name;
+    this.age = age;
+    this.favoriteSpell = favoriteSpell;
+  }
+  castSpell(){
+    console.log(`${this.name} has cast ${this.favoriteSpell}`);
+    
+  }
+}
+const myWizard = new Wizard('Tran',30,'soccer');
+myWizard.castSpell();
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
     Write a class called Phone. We'll use it as if we were creating
@@ -222,7 +256,24 @@ var user = {
 */
 
 //Code Here
-
+class Phone {
+  constructor(brand, model, storage, color, price,){
+    this.brand=brand;
+    this.model=model;
+    this.storage=storage;
+    this.color=color;
+    this.price=price;
+    this.sold=false;
+  }
+  sell(){
+    this.sold = true;
+    console.log(`${this.brand} ${this.model} has been sold`);
+  }
+  changePrice(newPrice){
+    this.price = newPrice;
+  }
+  
+}
   
 /*
     Next make three new phone instances using your class.
@@ -235,7 +286,13 @@ var user = {
 */
 
 //Code Here
+const phone1 = new Phone('Samsung','Galaxy', 256, 'Black', 1099);
+const phone2 = new Phone('Apple','iPhone 14', 512, 'Graphite', 1299);
+const phone3 = new Phone('Google','Pixel 6', 128, 'Sorta Sage', 799);
 
+console.log(phone1);
+console.log(phone2);
+console.log(phone3);
 /* 
   Call the changePrice function on one of your phones, 
   don't forget to pass in a new price 
@@ -244,7 +301,8 @@ var user = {
 */ 
 
 //Code Here 
-
+phone1.changePrice(2000);
+console.log(phone1);
 
 /*
   Now call the sell method on one of your other phone objects
@@ -253,6 +311,8 @@ var user = {
 */
 
 //Code Here 
+phone3.sell();
+console.log(phone3.sold);
 
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
